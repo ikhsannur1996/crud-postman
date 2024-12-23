@@ -1,4 +1,4 @@
-## Setting Up Postman for CRUD Operations Including PATCH
+## Setting Up Postman for CRUD Operations
 
 ### Prerequisites
 - **Postman Installed**: Ensure you have Postman installed on your machine.
@@ -79,11 +79,46 @@ To delete a resource:
 - **URL**: Enter your endpoint URL for the specific resource, e.g., `http://localhost:3000/posts/1`.
 - Click on **Send**. You should receive a response indicating success (HTTP status code 204).
 
+### Custom Response Testing in Postman
+
+When performing CRUD operations, it's essential to validate the responses received from your API. Here’s how you can create tests in Postman for various scenarios:
+
+#### Check for Successful Response
+
+You can verify that your API responds correctly by checking for expected status codes.
+
+```javascript
+// Check for successful response
+pm.test("Response status is 200 OK", function () {
+    pm.response.to.have.status(200);
+});
+```
+
+#### Check for Error Responses
+
+Customize this based on expected errors.
+
+```javascript
+// Check for error response (you can customize this based on expected errors)
+pm.test("Response status is 400 or 500", function () {
+    pm.response.to.have.status(400).or.to.have.status(500);
+});
+```
+
+#### Check if Resource is Created Successfully
+
+When creating a new resource, ensure that you receive a status of 201 Created.
+
+```javascript
+// Check if the response status is 201 Created
+pm.test("Response status is 201 Created", function () {
+    pm.response.to.have.status(201);
+});
+```
+
 ### Conclusion
-By following these steps, you can effectively perform CRUD operations using Postman, including partial updates using the PATCH method. This allows for more efficient modifications without needing to resend complete resource data.
+By following these steps, you can effectively perform CRUD operations using Postman and validate responses through custom tests. This setup not only aids in testing but also enhances development efficiency by ensuring that your API behaves as expected.
 
 For further reading and examples, refer to:
 - [Postman CRUD Operations Guide](https://blog.nashtechglobal.com/postman-crud/) 
 - [MDN Web Docs on PATCH](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PATCH)
-
-This guide provides a comprehensive overview of how to use Postman for CRUD operations, enabling efficient testing and development of APIs.
