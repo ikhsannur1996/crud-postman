@@ -11,23 +11,7 @@
 - Click on the **"New"** button or the **"+"** tab to create a new request.
 - Select **"HTTP Request"**.
 
-#### 2. Create Operation (POST)
-To create a new resource:
-
-- **Method**: Select **POST**.
-- **URL**: Enter your endpoint URL, e.g., `http://localhost:3000/posts`.
-- **Body**: Select the **Body** tab, choose **raw**, and set the type to **JSON**. Enter your JSON data:
-
-```json
-{
-  "title": "New Post",
-  "views": 10
-}
-```
-
-- Click on **Send**. You should receive a response indicating success (e.g., HTTP status code 201).
-
-#### 3. Read Operation (GET)
+#### 2. Read Operation (GET)
 To retrieve resources:
 
 - **Method**: Select **GET**.
@@ -37,6 +21,27 @@ To retrieve resources:
 To fetch a single resource:
 - Change the URL to `http://localhost:3000/posts/1` (replace `1` with the desired post ID).
 - Click on **Send** to see the specific post details.
+
+#### 3. Create Operation (POST)
+To create a new resource:
+
+- **Method**: Select **POST**.
+- **URL**: Enter your endpoint URL, e.g., `http://localhost:3000/posts`.
+- **Body**: Select the **Body** tab, choose **raw**, and set the type to **JSON**. Enter your JSON data:
+
+```json
+{
+  "id": "1",
+  "name": "John Doe",
+  "age": 20,
+  "gender": "Male",
+  "hobby": "Photography",
+  "city": "Jakarta",
+  "dream": "To become a professional photographer"
+}
+```
+
+- Click on **Send**. You should receive a response indicating success (e.g., HTTP status code 201).
 
 #### 4. Update Operation (PUT)
 To update an existing resource completely:
@@ -48,8 +53,12 @@ To update an existing resource completely:
 ```json
 {
   "id": "1",
-  "title": "Updated Title",
-  "views": 20
+  "name": "John Doe",
+  "age": 20,
+  "gender": "Male",
+  "hobby": "Photography",
+  "city": "Semarang",
+  "dream": "To become a professional photographer"
 }
 ```
 
@@ -64,7 +73,7 @@ To partially update an existing resource:
 
 ```json
 {
-  "views": 25
+  "city": "Bandung"
 }
 ```
 
